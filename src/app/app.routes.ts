@@ -1,12 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import { PagesComponent } from './pages/pages.component';
-
 import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
-import { ProgressComponent } from './pages/progress/progress.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
-import { Graficas1Component } from './pages/graficas1/graficas1.component';
 
 // Tarea 2
 import { RegisterComponent } from './login/register.component';
@@ -15,8 +10,11 @@ import { RegisterComponent } from './login/register.component';
 
 // Se define arreglo de rutas
 const appRoutes: Routes = [
-    {   // Aquí se define la ruta raíz pero también
+    /* {   // Aquí se define la ruta raíz pero también
         // se definen subrutas o rutas hijas
+        // NOTA. originalmente teníamos aquí estas referencias
+        // PERO SE MOVIERON a pages.routes para aligerar la
+        // cantidad de l+ineas aquí
         path: '', 
         component: PagesComponent,
         children: [
@@ -25,7 +23,7 @@ const appRoutes: Routes = [
             { path: 'graficas1', component: Graficas1Component },
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
         ]
-    },
+    }, */
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     /*

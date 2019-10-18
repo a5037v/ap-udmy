@@ -1,1 +1,87 @@
-<p>progress works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Barra de progreso</h4>
+                <div class="progress">
+                    <!-- Ya que el bootstrap NO es identificado por ng
+                         Se utiliza la directiva atributo para que ng
+                         pueda manejar el atributo de bootstrap
+                    -->
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.ariaValuenow]="progreso1" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso1 + '%'"></div>
+                </div>
+
+                <div class="progress">
+                    <!-- Ya que el bootstrap NO es identificado por ng
+                         Se utiliza la directiva atributo para que ng
+                         pueda manejar el atributo de bootstrap
+                    -->
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" [attr.ariaValuenow]="progreso2" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso2 + '%'"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <!-- TODO el siguiente código se movió a el componenten
+                     reutilizable: incrementador.component, en su lugar
+                    se deja la referencia al html de ese componente -->
+
+                <!-- RECORDAR que al estar separando para tener organizado
+                        la aplicación, la referencia al incrementador.mdi-view-module
+                        se va a realizar desde el pages.module
+                -->
+
+                <!-- Se coloca un atributo entre [] para indicar que se 
+                     pasa como parámetro, eso lo tomamos en el componente
+                    HIJO (esto es: incrementador.component)  
+                
+                    NOTA: En Angular, al colocar algo entre [] se indica
+                    que el valor enviado es una variables
+                    En caso de que no se envíe con [], se puede enviar
+                    una cadena
+                    ------- ORIGINALMENTE la variable era leyenda PERO
+                            se cambió dentro del component.ts a nombre
+
+                    Para el caso de uso del decorador @Output, se maneja
+                    igual que "la escucha" del evento (click)
+                -->
+
+                <!-- SE COMENTA la siguiente línea para dejarla de respaldo
+                y se usa la segunda línea como definitiva  -->
+                <!-- <app-incrementador (cambioValor)="actualizar( $event )" nombre="Progress azul" [progreso]="progreso"></app-incrementador>
+                -->
+                <app-incrementador (actualizaValor)="progreso1 = $event" nombre="Progress azul" [progreso]="20"></app-incrementador>
+
+                <!--
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button" (click)="cambiarValor(-5)"><i class="mdi mdi-minus"></i></button>
+                    </span>
+
+                    <input type="text" class="form-control" name="progreso" [(ngModel)]="progreso">
+
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button" (click)="cambiarValor(5)"><i class="mdi mdi-plus"></i></button>
+                    </span>
+                </div>
+            -->
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <app-incrementador (actualizaValor)="progreso2 = $event" nombre="Progress verde" [progreso]="60"></app-incrementador>
+            </div>
+        </div>
+    </div>
+
+</div>

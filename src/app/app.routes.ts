@@ -15,7 +15,7 @@ const appRoutes: Routes = [
         // NOTA. originalmente teníamos aquí estas referencias
         // PERO SE MOVIERON a pages.routes para aligerar la
         // cantidad de l+ineas aquí
-        path: '', 
+        path: '',
         component: PagesComponent,
         children: [
             { path: 'dashboard', component: DashboardComponent },
